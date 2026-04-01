@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "defaultLanguage": "EN"
+  },
+  "session": {
+    "introSeconds": 10,
+    "gameplaySeconds": 270,
+    "maxPlayers": 4
+  },
+  "budget": {
+    "mode": "PerQuadrant",
+    "startingBudget": 1000
+  },
+  "scoring": {
+    "qolCapPerMetric": 20,
+    "epsilonDistance": 1.0
+  },
+  "accessibility": {
+    "walkingDistance": 500,
+    "snapToTransitMaxDistance": 300,
+    "roadConnectRange": 500,
+    "zoneRadius": 400,
+    "defaultConnectionRadius": 600
+  },
+  "osc": {
+    "sources": [
+      { "id": "Q1", "listenPort": 3331, "expectedSenderIp": "192.168.50.1" },
+      { "id": "Q2", "listenPort": 9002, "expectedSenderIp": "192.168.0.102" },
+      { "id": "Q3", "listenPort": 9003, "expectedSenderIp": "192.168.0.103" },
+      { "id": "Q4", "listenPort": 9004, "expectedSenderIp": "192.168.0.104" }
+    ]
+  },
+  "buildings": [
+    { "id": "garden", "category": "Environment", "impactSize": "Small", "importance": 0.6, "price": 180, "connectionRadius": 600, "baseValues": { "environment": 5, "economy": 2, "healthSafety": -2, "cultureEdu": 2 }, "localizationKey": "building.garden.name" },
+    { "id": "park", "category": "Environment", "impactSize": "Medium", "importance": 0.7, "price": 350, "connectionRadius": 800, "baseValues": { "environment": 7, "economy": 3, "healthSafety": -3, "cultureEdu": 5 }, "localizationKey": "building.park.name" },
+    { "id": "recycling_plant", "category": "Environment", "impactSize": "Large", "importance": 0.8, "price": 550, "connectionRadius": 1000, "baseValues": { "environment": 10, "economy": 4, "healthSafety": -4, "cultureEdu": 0 }, "localizationKey": "building.recycling_plant.name" },
+    { "id": "office", "category": "Economy", "impactSize": "Small", "importance": 0.7, "price": 100, "connectionRadius": 600, "baseValues": { "environment": -3, "economy": 5, "healthSafety": -2, "cultureEdu": 0 }, "localizationKey": "building.office.name" },
+    { "id": "mall", "category": "Economy", "impactSize": "Medium", "importance": 0.6, "price": 200, "connectionRadius": 800, "baseValues": { "environment": -4, "economy": 7, "healthSafety": -3, "cultureEdu": 0 }, "localizationKey": "building.mall.name" },
+    { "id": "factory", "category": "Economy", "impactSize": "Large", "importance": 0.5, "price": 500, "connectionRadius": 1000, "baseValues": { "environment": -6, "economy": 10, "healthSafety": -4, "cultureEdu": 0 }, "localizationKey": "building.factory.name" },
+    { "id": "police_station", "category": "HealthSafety", "impactSize": "Small", "importance": 0.9, "price": 150, "connectionRadius": 600, "baseValues": { "environment": 0, "economy": 2, "healthSafety": 5, "cultureEdu": 0 }, "localizationKey": "building.police_station.name" },
+    { "id": "fire_station", "category": "HealthSafety", "impactSize": "Medium", "importance": 0.9, "price": 300, "connectionRadius": 800, "baseValues": { "environment": 0, "economy": 3, "healthSafety": 7, "cultureEdu": 0 }, "localizationKey": "building.fire_station.name" },
+    { "id": "hospital", "category": "HealthSafety", "impactSize": "Large", "importance": 1.0, "price": 600, "connectionRadius": 1000, "baseValues": { "environment": 0, "economy": 4, "healthSafety": 10, "cultureEdu": 0 }, "localizationKey": "building.hospital.name" },
+    { "id": "school", "category": "CultureEdu", "impactSize": "Small", "importance": 1.0, "price": 120, "connectionRadius": 600, "baseValues": { "environment": 1, "economy": 1, "healthSafety": -2, "cultureEdu": 5 }, "localizationKey": "building.school.name" },
+    { "id": "museum", "category": "CultureEdu", "impactSize": "Medium", "importance": 0.8, "price": 250, "connectionRadius": 800, "baseValues": { "environment": 0, "economy": 2, "healthSafety": -3, "cultureEdu": 7 }, "localizationKey": "building.museum.name" },
+    { "id": "state_circus", "category": "CultureEdu", "impactSize": "Large", "importance": 0.6, "price": 520, "connectionRadius": 1000, "baseValues": { "environment": -1, "economy": 3, "healthSafety": -4, "cultureEdu": 10 }, "localizationKey": "building.state_circus.name" }
+  ],
+  "map": {
+    "nodes": [
+      { "x": -90, "y": -90, "population": 50000 },
+      { "x": 90, "y": -90, "population": 50000 },
+      { "x": 90, "y": 90, "population": 50000 },
+      { "x": -90, "y": 90, "population": 50000 }
+    ],
+    "edges": [
+      { "from": 0, "to": 1, "length": 180 },
+      { "from": 1, "to": 2, "length": 180 },
+      { "from": 2, "to": 3, "length": 180 },
+      { "from": 3, "to": 0, "length": 180 },
+      { "from": 0, "to": 2, "length": 254.5 },
+      { "from": 1, "to": 3, "length": 254.5 }
+    ],
+    "obstacles": []
+  },
+  "tooltips": {
+    "introKeys": []
+  },
+  "endMessages": [
+    { "min": 0, "max": 20, "titleKey": "end.0_20.title", "bodyKey": "end.0_20.body" },
+    { "min": 20, "max": 40, "titleKey": "end.20_40.title", "bodyKey": "end.20_40.body" },
+    { "min": 40, "max": 60, "titleKey": "end.40_60.title", "bodyKey": "end.40_60.body" },
+    { "min": 60, "max": 80, "titleKey": "end.60_80.title", "bodyKey": "end.60_80.body" },
+    { "min": 80, "max": 100, "titleKey": "end.80_100.title", "bodyKey": "end.80_100.body" }
+  ],
+  "localization": {
+    "EN": {
+      "building.garden.name": "Garden",
+      "building.park.name": "Park",
+      "building.recycling_plant.name": "Recycling Plant",
+      "building.office.name": "Office",
+      "building.mall.name": "Mall",
+      "building.factory.name": "Factory",
+      "building.police_station.name": "Police Station",
+      "building.fire_station.name": "Fire Station",
+      "building.hospital.name": "Hospital",
+      "building.school.name": "School",
+      "building.museum.name": "Museum",
+      "building.state_circus.name": "State Circus",
+      "ui.budget": "Budget",
+      "ui.qol": "Quality of Life",
+      "ui.timer": "Time",
+      "ui.environment": "Environment",
+      "ui.economy": "Economy",
+      "ui.safety": "Safety",
+      "ui.culture": "Culture",
+      "ui.access": "Access",
+      "start.english": "ENGLISH",
+      "start.russian": "НАЧАТЬ",
+      "start.kazakh": "БАСТАУ",
+      "start.placeTile": "Place a tile to select language",
+      "end.0_20.title": "Critical",
+      "end.0_20.body": "Re-balancing required.",
+      "end.20_40.title": "Low",
+      "end.20_40.body": "Systems need improvement.",
+      "end.40_60.title": "Moderate",
+      "end.40_60.body": "Systems nominal.",
+      "end.60_80.title": "Good",
+      "end.60_80.body": "City thriving.",
+      "end.80_100.title": "Excellent",
+      "end.80_100.body": "Optimization excellent."
+    },
+    "RU": {
+      "building.garden.name": "Сад",
+      "building.park.name": "Парк",
+      "building.recycling_plant.name": "Перерабатывающий завод",
+      "building.office.name": "Офис",
+      "building.mall.name": "Торговый центр",
+      "building.factory.name": "Фабрика",
+      "building.police_station.name": "Полицейский участок",
+      "building.fire_station.name": "Пожарная часть",
+      "building.hospital.name": "Больница",
+      "building.school.name": "Школа",
+      "building.museum.name": "Музей",
+      "building.state_circus.name": "Государственный цирк",
+      "ui.budget": "Бюджет",
+      "ui.qol": "Качество жизни",
+      "ui.timer": "Время",
+      "ui.environment": "Экология",
+      "ui.economy": "Экономика",
+      "ui.safety": "Безопасность",
+      "ui.culture": "Культура",
+      "ui.access": "Доступность",
+      "start.english": "АНГЛИЙСКИЙ",
+      "start.russian": "НАЧАТЬ",
+      "start.kazakh": "БАСТАУ",
+      "start.placeTile": "Положите плитку, чтобы выбрать язык",
+      "end.0_20.title": "Критично",
+      "end.0_20.body": "Требуется пересбалансировка.",
+      "end.20_40.title": "Низко",
+      "end.20_40.body": "Системы требуют улучшения.",
+      "end.40_60.title": "Умеренно",
+      "end.40_60.body": "Системы в норме.",
+      "end.60_80.title": "Хорошо",
+      "end.60_80.body": "Город процветает.",
+      "end.80_100.title": "Отлично",
+      "end.80_100.body": "Оптимизация на высоте."
+    },
+    "KZ": {
+      "building.garden.name": "Бакша",
+      "building.park.name": "Саябақ",
+      "building.recycling_plant.name": "Қайта өңдеу зауыты",
+      "building.office.name": "Кеңсе",
+      "building.mall.name": "Сауда орталығы",
+      "building.factory.name": "Фабрика",
+      "building.police_station.name": "Полиция бөлімі",
+      "building.fire_station.name": "Өрт сөндіру бөлімі",
+      "building.hospital.name": "Аурухана",
+      "building.school.name": "Мектеп",
+      "building.museum.name": "Мұражай",
+      "building.state_circus.name": "Мемлекеттік цирк",
+      "ui.budget": "Бюджет",
+      "ui.qol": "Өмір сапасы",
+      "ui.timer": "Уақыт",
+      "ui.environment": "Қоршаған орта",
+      "ui.economy": "Экономика",
+      "ui.safety": "Қауіпсіздік",
+      "ui.culture": "Мәдениет",
+      "ui.access": "Қолжетімділік",
+      "start.english": "ENGLISH",
+      "start.russian": "НАЧАТЬ",
+      "start.kazakh": "БАСТАУ",
+      "start.placeTile": "Тілді таңдау үшін плитканы қойыңыз",
+      "end.0_20.title": "Сыни",
+      "end.0_20.body": "Қайта теңгеру қажет.",
+      "end.20_40.title": "Төмен",
+      "end.20_40.body": "Жүйелерді жақсарту қажет.",
+      "end.40_60.title": "Орташа",
+      "end.40_60.body": "Жүйелер қалыпты.",
+      "end.60_80.title": "Жақсы",
+      "end.60_80.body": "Қала гүлдейді.",
+      "end.80_100.title": "Тамаша",
+      "end.80_100.body": "Оңтайландыру тамаша."
+    }
+  }
+}
